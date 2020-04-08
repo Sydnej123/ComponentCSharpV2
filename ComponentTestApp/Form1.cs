@@ -17,12 +17,28 @@ namespace ComponentTestApp
             InitializeComponent();
         }
 
-        private void button1_Click(object sender, EventArgs e)
+        private void formTextInput2_Load(object sender, EventArgs e)
         {
-            label4.Text = form2.getData();
+
         }
 
         private void label1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            form2.clearFields();
+
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = form2.getData();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }

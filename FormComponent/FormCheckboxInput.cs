@@ -81,6 +81,10 @@ namespace FormComponent
         {
             return field.Checked.ToString();
         }
+        public override void clearField()
+        {
+            field.Checked = false;
+        }
     }
 
 

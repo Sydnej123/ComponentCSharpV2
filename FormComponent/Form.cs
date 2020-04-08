@@ -69,6 +69,18 @@ namespace FormComponent
            }
         }
           
+        public void clearFields()
+        {
+            foreach (Control c in Controls)
+            {
+                IFormInput obj = c as IFormInput;
+                if (obj != null)
+                {
+                    obj.clearField();
+                }
+            }
+        }
+            
 
     }
 }

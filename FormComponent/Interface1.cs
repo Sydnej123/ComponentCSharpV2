@@ -10,6 +10,6 @@ namespace FormComponent
         String getValue();
         String getName();
 
-
+        void clearField();
     }
 }

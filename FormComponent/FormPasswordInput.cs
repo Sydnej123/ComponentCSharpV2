@@ -60,6 +60,7 @@ namespace FormComponent
             base.OnPaint(e);
             if (!this.Controls.Contains(field))
             {
+                field.PasswordChar = '*';
                 this.Controls.Add(field);
                 this.Controls.Add(errorLabel);
                 this.Size = new System.Drawing.Size(200, 50);
@@ -92,6 +93,10 @@ namespace FormComponent
         {
             return field.Text;
         }
-    
+        public override void clearField()
+        {
+            field.Clear();
+        }
+
     }
 }

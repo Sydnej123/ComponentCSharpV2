@@ -109,6 +109,10 @@ namespace FormComponent
         {
             return field.SelectedItem.ToString();
         }
+        public override void clearField()
+        {
+            field.SelectedIndex = 0;
+        }
     }
 
 

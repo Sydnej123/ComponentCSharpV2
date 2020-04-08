@@ -92,6 +92,10 @@ namespace FormComponent
         {   
             return field.Text;
         }
+        public override void clearField()
+        {
+            field.Clear();
+        }
     }
 
 }

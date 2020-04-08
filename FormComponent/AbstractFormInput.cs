@@ -55,6 +55,7 @@ namespace FormComponent
 
         public abstract bool isValid();
         public abstract string getValue();
+        public abstract void clearField();
        
     }
 }

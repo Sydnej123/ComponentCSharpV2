@@ -122,7 +122,12 @@ namespace FormComponent
 
         public override string getValue()
         {
+            
             return field.Text;
+        }
+        public override void clearField()
+        {
+            field.Value = DateTime.Now;
         }
     }
 
