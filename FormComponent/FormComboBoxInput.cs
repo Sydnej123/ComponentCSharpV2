@@ -11,15 +11,15 @@ namespace FormComponent
     public partial class FormComboBox : AbstractFormInput
     {
         private ComboBox field = new ComboBox();
-        private bool _isRequired;
+      
        
         
-        public Object[] Items
+        public FormComboBoxOption[] Items
         {
             get {
-                Object[] temp = new object[field.Items.Count];
+                FormComboBoxOption[] temp = new FormComboBoxOption[field.Items.Count];
                 int i = 0;
-                foreach(Object o in field.Items) {
+                foreach(FormComboBoxOption o in field.Items) {
                     temp[i] = o;
                     i++;
                 }
@@ -27,13 +27,14 @@ namespace FormComponent
             }
             set {
                 field.Items.Clear();
-                foreach (Object o in value)
+                foreach (FormComboBoxOption o in value)
                 {
                     field.Items.Add(o);
                   
                 }
             }
         }
+        private bool _isRequired;
         public bool IsRequired
         {
             get { return _isRequired; }
@@ -62,15 +63,25 @@ namespace FormComponent
             get { return field.BackColor; }
             set { field.BackColor = value; }
         }
+
+        private void resizeElements(object sender, EventArgs e)
+        {
+            field.Width = this.Width;
+            errorLabel.Width = this.Width;
+        }
+
         public FormComboBox()
         {
+            errorLabel.Visible = false;
+            this.Resize += resizeElements;
             InitializeComponent();
         }
 
         public FormComboBox(IContainer container)
         {
+            errorLabel.Visible = false;
+            this.Resize += resizeElements;
             container.Add(this);
-
             InitializeComponent();
         }
         protected override void OnPaint(PaintEventArgs e)
@@ -107,11 +118,15 @@ namespace FormComponent
 
         public override string getValue()
         {
-            return field.SelectedItem.ToString();
+            return ((FormComboBoxOption)field.SelectedItem).Value;
         }
         public override void clearField()
         {
             field.SelectedIndex = 0;
+        }
+        public override void setFieldHorizontalPosition(int horizontalPosition)
+        {
+            this.Location = new Point(horizontalPosition, field.Location.Y);
         }
     }
 

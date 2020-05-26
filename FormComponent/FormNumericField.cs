@@ -1,40 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Drawing;
 using System.ComponentModel;
-using System.Diagnostics;
-using System.Drawing;
-using System.Text;
 using System.Windows.Forms;
+using System;
 
 namespace FormComponent
 {
-    public partial class FormDateInput : AbstractFormInput
+    public partial class FormNumericField : AbstractFormInput
     {
-        private DateTime _dateBefore;
-        private DateTime _dateAfter;
-        private bool _dateCheckBefore;
-        private bool _dateCheckAfter;
-
-        public bool CheckDateBefore
-        {
-            get { return _dateCheckBefore;  }
-            set { _dateCheckBefore = value;  }
-        }
-
-        public bool CheckDateAfter
-        {
-            get { return _dateCheckAfter; }
-            set { _dateCheckAfter = value; }
-        }
-        public DateTime DateBefore{
-            get {
-                return _dateBefore;
-            }
-            set {
-                 _dateBefore = value;
-            }
-        }
-
+        private NumericUpDown field = new NumericUpDown();
         public Point FieldLocation
         {
             get { return field.Location; }
@@ -47,10 +20,15 @@ namespace FormComponent
             set { field.Size = value; }
         }
 
+        private Color _foreColor;
+
         public Color FieldForeColor
         {
-            get { return field.ForeColor; }
-            set { field.ForeColor = value; }
+            get { return _foreColor; }
+            set
+            {
+                _foreColor = value;
+            }
         }
 
         public Color FieldBackColor
@@ -59,16 +37,34 @@ namespace FormComponent
             set { field.BackColor = value; }
         }
 
-        public DateTime DateAfter
+        public int DecimalPlaces
         {
-            get
-            {
-                return _dateAfter;
-            }
-            set
-            {
-                _dateAfter = value;
-            }
+            get { return field.DecimalPlaces;  }
+            set { field.DecimalPlaces = value; }
+        }
+
+       public decimal Increment
+        {
+            get { return field.Increment; }
+            set { field.Increment = value; }
+        }
+
+        public decimal Maximum
+        {
+            get { return field.Maximum; }
+            set { field.Maximum = value; }
+        }
+
+        public decimal Minimum
+        {
+            get { return field.Minimum; }
+            set { field.Minimum= value; }
+        }
+
+        public Boolean ThousandsSeparator
+        {
+            get { return field.ThousandsSeparator;  }
+            set { field.ThousandsSeparator = value;  }
         }
 
         private void resizeElements(object sender, EventArgs e)
@@ -77,15 +73,14 @@ namespace FormComponent
             errorLabel.Width = this.Width;
         }
 
-        private DateTimePicker field = new DateTimePicker();
-        public FormDateInput()
+        public FormNumericField()
         {
             errorLabel.Visible = false;
             this.Resize += resizeElements;
             InitializeComponent();
         }
 
-        public FormDateInput(IContainer container)
+        public FormNumericField(IContainer container)
         {
             errorLabel.Visible = false;
             this.Resize += resizeElements;
@@ -106,42 +101,23 @@ namespace FormComponent
                 errorLabel.Location = new System.Drawing.Point(0, 35);
 
             }
+
         }
         public override bool isValid()
         {
-            bool isDateValid = true;
-            if (_dateCheckBefore)
-            {
-                if (DateTime.Compare(field.Value, _dateBefore) > 0)
-                {
-                    isDateValid = false;
-                }
-               
-            }
-            if (_dateCheckAfter)
-            {
-                if (DateTime.Compare(field.Value, _dateAfter) < 0)
-                {
-                    isDateValid = false;
-                }
-
-            }
-            return isDateValid;
+            return true;
         }
-
         public override string getValue()
         {
-            
-            return field.Text;
+            return field.Value.ToString();
         }
         public override void clearField()
         {
-            field.Value = DateTime.Now;
+            field.Value = field.Minimum;
         }
         public override void setFieldHorizontalPosition(int horizontalPosition)
         {
             this.Location = new Point(horizontalPosition, this.Location.Y);
         }
     }
-
 }

@@ -20,7 +20,7 @@ namespace FormComponent
         public bool Required
         {
             get { return _isRequired; }
-            set { _isRequired = value;  }
+            set { _isRequired = value; }
         }
         public Point FieldLocation
         {
@@ -47,8 +47,8 @@ namespace FormComponent
         }
         public FormCheckboxInput(IContainer container)
         {
+            errorLabel.Visible = false;
             container.Add(this);
-
             InitializeComponent();
         }
         protected override void OnPaint(PaintEventArgs e)
@@ -72,7 +72,8 @@ namespace FormComponent
                 errorLabel.Visible = true;
                 return false;
             }
-            else {
+            else
+            {
                 return true;
             }
         }
@@ -85,7 +86,11 @@ namespace FormComponent
         {
             field.Checked = false;
         }
-    }
 
+        public override void setFieldHorizontalPosition(int horizontalPosition)
+        {
+            this.Location = new Point(horizontalPosition, this.Location.Y);
+        }
+    }
 
 }

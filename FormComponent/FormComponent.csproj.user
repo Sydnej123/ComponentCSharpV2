@@ -5,6 +5,9 @@
     <Compile Update="AbstractFormInput.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="FormNumericField.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="Form.cs">
       <SubType>UserControl</SubType>
     </Compile>

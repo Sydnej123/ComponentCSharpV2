@@ -20,7 +20,12 @@ namespace FormComponent
         }
         
         private TextBox field = new TextBox();
-
+        
+        public int MaxLength
+        {
+            get { return this.field.MaxLength; }
+            set { this.field.MaxLength = value; }
+        }
         public Point FieldLocation
         {
             get { return field.Location; }
@@ -33,10 +38,13 @@ namespace FormComponent
             set { field.Size = value; }
         }
 
+        private Color _foreColor;
+
         public Color FieldForeColor
         {
-            get { return field.ForeColor; }
-            set { field.ForeColor = value; }
+            get { return _foreColor; }
+            set {
+                _foreColor = value;  }
         }
 
         public Color FieldBackColor
@@ -45,16 +53,76 @@ namespace FormComponent
             set { field.BackColor = value; }
         }
 
+        private String _placeholderText;
+
+        public String Placeholder
+        {
+            get { return this._placeholderText; }
+            set { this._placeholderText = value;
+                this.field.Text = value;
+                if(value != string.Empty)
+                {
+                    this.field.ForeColor = Color.Gray;
+                }
+                
+            }
+        }
+
+        private bool _isRequired;
+        public bool IsRequired
+        {
+            get { return _isRequired; }
+            set { _isRequired = value; }
+        }
+
+        private void showPlaceholder(object sender, EventArgs e)
+        {
+           if(this.field.Text == string.Empty)
+            {
+                this.field.ForeColor = Color.Gray;
+                this.field.Text = _placeholderText;
+            }
+            else
+            {
+                this.field.ForeColor = this._foreColor;
+            }
+        }
+        private void hidePlaceholder(object sender, EventArgs e)
+        {
+            if (this.field.Text == _placeholderText)
+            {
+                this.field.ForeColor = this._foreColor;
+                this.field.Text = "";
+            }
+          
+        }
+
         public FormTextInput()
         {
+            errorLabel.Visible = false;
+            this.field.LostFocus += showPlaceholder;
+            this.field.GotFocus += hidePlaceholder;
+            this.Resize += resizeElements;
             InitializeComponent();
+        }
+
+        private void resizeElements(object sender, EventArgs e)
+        {
+            field.Width = this.Width;
+            errorLabel.Width = this.Width;
         }
 
         public FormTextInput(IContainer container)
         {
+            errorLabel.Visible = false;
+            this.field.LostFocus += showPlaceholder;
+            this.field.GotFocus += hidePlaceholder;
+            this.Resize += resizeElements;
             container.Add(this);
             InitializeComponent();
         }
+
+       
 
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -86,7 +154,14 @@ namespace FormComponent
                     return true;
                 }
             }
-            return true;
+            else if(_isRequired && field.Text.Length < 0){
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+           
         }
         public override string getValue()
         {   
@@ -95,6 +170,10 @@ namespace FormComponent
         public override void clearField()
         {
             field.Clear();
+        }
+        public override void setFieldHorizontalPosition(int horizontalPosition)
+        {
+            this.Location = new Point(horizontalPosition, this.Location.Y);
         }
     }
 

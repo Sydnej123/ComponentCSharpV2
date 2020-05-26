@@ -14,6 +14,7 @@ namespace FormComponent
     public partial class FormPasswordInput : AbstractFormInput
     {
         private string _regex;
+        private TextBox field = new TextBox();
 
         public string RegularExpression
         {
@@ -21,7 +22,13 @@ namespace FormComponent
             set { _regex = value; }
         }
 
-        private TextBox field = new TextBox();
+        public int MaxLength
+        {
+            get { return this.field.MaxLength; }
+            set { this.field.MaxLength = value; }
+        }
+
+       
         public Point FieldLocation
         {
             get { return field.Location; }
@@ -45,13 +52,22 @@ namespace FormComponent
             get { return field.BackColor; }
             set { field.BackColor = value; }
         }
+        private void resizeElements(object sender, EventArgs e)
+        {
+            field.Width = this.Width;
+            errorLabel.Width = this.Width;
+        }
         public FormPasswordInput()
         {
+            this.Resize += resizeElements;
+            errorLabel.Visible = false;
             InitializeComponent();
         }
 
         public FormPasswordInput(IContainer container)
         {
+            errorLabel.Visible = false;
+            this.Resize += resizeElements;
             container.Add(this);
             InitializeComponent();
         }
@@ -96,6 +112,10 @@ namespace FormComponent
         public override void clearField()
         {
             field.Clear();
+        }
+        public override void setFieldHorizontalPosition(int horizontalPosition)
+        {
+            this.Location = new Point(horizontalPosition, this.Location.Y);
         }
 
     }
