@@ -104,22 +104,46 @@ namespace FormComponent
             this.field.GotFocus += hidePlaceholder;
             this.Resize += resizeElements;
             InitializeComponent();
+            this.Size = new System.Drawing.Size(200, 50);
+            field.Size = new System.Drawing.Size(200, 30);
+            errorLabel.Size = new System.Drawing.Size(200, 15);
+            errorLabel.Location = new System.Drawing.Point(0, 35);
+            field.TextChanged += hideError;
+
+         
         }
 
         private void resizeElements(object sender, EventArgs e)
         {
             field.Width = this.Width;
             errorLabel.Width = this.Width;
+
+            Form parent = Parent as Form;
+            if(parent != null)
+            {
+                if (parent.Width < this.Location.X + this.Width) {
+                    parent.Width += (this.Location.X + this.Width - parent.Width);
+                }
+            }
+           
         }
 
         public FormTextInput(IContainer container)
         {
+           
             errorLabel.Visible = false;
             this.field.LostFocus += showPlaceholder;
             this.field.GotFocus += hidePlaceholder;
             this.Resize += resizeElements;
+            
             container.Add(this);
             InitializeComponent();
+            this.Size = new System.Drawing.Size(200, 50);
+            field.Size = new System.Drawing.Size(200, 30);
+            errorLabel.Size = new System.Drawing.Size(200, 15);
+            errorLabel.Location = new System.Drawing.Point(0, 35);
+            field.TextChanged += hideError;
+           
         }
 
        
@@ -130,13 +154,16 @@ namespace FormComponent
             if (!this.Controls.Contains(field)) {
                 this.Controls.Add(field);
                 this.Controls.Add(errorLabel);
-                this.Size = new System.Drawing.Size(200, 50);
-                field.Size = new System.Drawing.Size(200, 30);
-                errorLabel.Size = new System.Drawing.Size(200, 15);
-                errorLabel.Location = new System.Drawing.Point(0, 35);
-                
+
+
+                Form parent = Parent as Form;
+                if (parent != null)
+                {
+                    parent.revalidateGrid();
+                }
             }
             
+
         }
         public override bool isValid()
         {

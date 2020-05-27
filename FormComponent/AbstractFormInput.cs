@@ -58,6 +58,22 @@ namespace FormComponent
 
         }
 
+        private bool _hideErrorMessageOnChange = false;
+
+        public bool HideErrorMessageOnChange
+        {
+            get { return _hideErrorMessageOnChange; }
+            set { _hideErrorMessageOnChange = value; }
+        }
+
+        public void hideError(object sender, EventArgs e)
+        {
+            if (_hideErrorMessageOnChange)
+            {
+                errorLabel.Visible = false;
+            }
+
+        }
 
         public abstract bool isValid();
 
@@ -81,6 +97,21 @@ namespace FormComponent
         public abstract void setFieldHorizontalPosition(int horizontalPosition);
 
         public void setInputSize(Size size)
+        {
+            this.Size = size;
+        }
+
+        public Point getLocation()
+        {
+            return this.Location;
+        }
+
+        public void setLocation(Point point)
+        {
+            this.Location = point;
+        }
+
+        public void setSize(Size size)
         {
             this.Size = size;
         }

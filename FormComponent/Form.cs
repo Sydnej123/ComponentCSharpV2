@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
+using System.Linq;
 
 namespace FormComponent
 {
@@ -19,23 +20,6 @@ namespace FormComponent
         {
             get { return _json; }
 
-        }
-
-        private int _controlsHorizontalPosition;
-        public int ControlsHoriziontalPosition
-        {
-            get { return _controlsHorizontalPosition; }
-            set {
-                _controlsHorizontalPosition = value;
-                foreach (Control c in Controls)
-                {
-                    IFormInput obj = c as IFormInput;
-                    if (obj != null)
-                    {
-                        obj.setFieldHorizontalPosition(value);
-                    }
-                }
-            }
         }
 
         private Point _errorPosition;
@@ -92,6 +76,59 @@ namespace FormComponent
             }
         }
 
+        private bool _controlGrid = false;
+        public bool ControlGrid
+        {
+            get { return _controlGrid; }
+            set { _controlGrid = value;
+                if (value)
+                {
+                    revalidateGrid();
+                }
+            }
+        }
+
+        public void revalidateGrid()
+        {
+            if (_controlGrid) {
+                int i = 0;
+                int currentHeight = 0;
+
+                List<Control> con = Controls.Cast<Control>().OrderBy(control => control.Location.Y).ToList();
+                foreach (Control c in con)
+                {
+
+                    IFormInput obj = c as IFormInput;
+                    if (obj != null)
+                    {
+                        obj.setSize(_fieldsSize);
+                        if (i == 0)
+                        {
+                            Point point = obj.getLocation();
+                            currentHeight = point.Y;
+                        }
+                        obj.setLocation(new Point(_marginLeft, currentHeight));
+                        currentHeight += (_fieldsSize.Height + _marginTop);
+                        i++;
+                    }
+                   
+                }
+            }
+          
+        }
+        private int _marginLeft = 0;
+        public int ControlsMarginLeft
+        {
+            get { return _marginLeft; }
+            set { _marginLeft = value; }
+        }
+
+        private int _marginTop = 0;
+        public int ControlsMarginTop
+        {
+            get { return _marginTop; }
+            set { _marginTop = value; }
+        }
 
         public Form()
         {
@@ -104,7 +141,7 @@ namespace FormComponent
             InitializeComponent();
         }
 
-        private bool validateForm()
+        public bool validateForm()
         {
             bool isFormValid = true;
 
@@ -122,7 +159,7 @@ namespace FormComponent
             return isFormValid;
         }
 
-        public String getData() {
+        public String getDataString() {
             string data = "{";
             if (validateForm())
             {
@@ -143,7 +180,25 @@ namespace FormComponent
                 return "Error";
            }
         }
-          
+
+        public Dictionary<string, string> getData()
+        {
+            Dictionary<string, string> values = new Dictionary<string, string>();
+            if (validateForm())
+            {
+                foreach (Control c in Controls)
+                {
+                    IFormInput obj = c as IFormInput;
+                    if (obj != null)
+                    {
+                        values.Add(obj.getName(), obj.getValue());
+                    }
+                }
+                
+            }
+            return values;
+        }
+
         public void clearFields()
         {
             foreach (Control c in Controls)

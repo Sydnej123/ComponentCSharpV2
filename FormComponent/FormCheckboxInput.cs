@@ -13,7 +13,13 @@ namespace FormComponent
         private CheckBox field = new CheckBox();
         public FormCheckboxInput()
         {
+            errorLabel.Visible = false;
             InitializeComponent();
+            this.Size = new System.Drawing.Size(200, 50);
+            field.Size = new System.Drawing.Size(200, 30);
+            errorLabel.Size = new System.Drawing.Size(200, 15);
+            errorLabel.Location = new System.Drawing.Point(0, 35);
+            field.TextChanged += hideError;
         }
 
         private bool _isRequired;
@@ -50,6 +56,16 @@ namespace FormComponent
             errorLabel.Visible = false;
             container.Add(this);
             InitializeComponent();
+            this.Size = new System.Drawing.Size(200, 50);
+            field.Size = new System.Drawing.Size(200, 30);
+            errorLabel.Size = new System.Drawing.Size(200, 15);
+            errorLabel.Location = new System.Drawing.Point(0, 35);
+            field.TextChanged += hideError;
+            Form parent = Parent as Form;
+            if (parent != null)
+            {
+                parent.revalidateGrid();
+            }
         }
         protected override void OnPaint(PaintEventArgs e)
         {
@@ -58,11 +74,14 @@ namespace FormComponent
             {
                 this.Controls.Add(field);
                 this.Controls.Add(errorLabel);
-                this.Size = new System.Drawing.Size(200, 50);
-                field.Size = new System.Drawing.Size(200, 30);
-                errorLabel.Size = new System.Drawing.Size(200, 15);
-                errorLabel.Location = new System.Drawing.Point(0, 35);
+               
 
+            }
+
+            Form parent = Parent as Form;
+            if (parent != null)
+            {
+                parent.revalidateGrid();
             }
         }
         public override bool isValid()

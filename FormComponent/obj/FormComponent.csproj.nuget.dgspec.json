@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Filip\\Desktop\\GIT\\ComponentCSharpV2\\FormComponent\\FormComponent.csproj": {}
+    "C:\\Users\\songo\\Desktop\\GIT\\ComponentTestApp\\FormComponent\\FormComponent.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Filip\\Desktop\\GIT\\ComponentCSharpV2\\FormComponent\\FormComponent.csproj": {
+    "C:\\Users\\songo\\Desktop\\GIT\\ComponentTestApp\\FormComponent\\FormComponent.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Filip\\Desktop\\GIT\\ComponentCSharpV2\\FormComponent\\FormComponent.csproj",
+        "projectUniqueName": "C:\\Users\\songo\\Desktop\\GIT\\ComponentTestApp\\FormComponent\\FormComponent.csproj",
         "projectName": "FormComponent",
-        "projectPath": "C:\\Users\\Filip\\Desktop\\GIT\\ComponentCSharpV2\\FormComponent\\FormComponent.csproj",
-        "packagesPath": "C:\\Users\\Filip\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Filip\\Desktop\\GIT\\ComponentCSharpV2\\FormComponent\\obj\\",
+        "projectPath": "C:\\Users\\songo\\Desktop\\GIT\\ComponentTestApp\\FormComponent\\FormComponent.csproj",
+        "packagesPath": "C:\\Users\\songo\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\songo\\Desktop\\GIT\\ComponentTestApp\\FormComponent\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Filip\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\songo\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -55,7 +55,7 @@
           ],
           "assetTargetFallback": true,
           "warn": true,
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.300\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.101\\RuntimeIdentifierGraph.json"
         }
       }
     }

@@ -19,5 +19,11 @@ namespace FormComponent
 
         void setInputSize(Size size);
 
+        Point getLocation();
+        void setLocation(Point point);
+
+        void setSize(Size size);
+       
+
     }
 }
