@@ -29,14 +29,7 @@ namespace FormComponent
             set
             {
                 _errorPosition = value;
-                foreach (Control c in Controls)
-                {
-                    IFormInput obj = c as IFormInput;
-                    if (obj != null)
-                    {
-                        obj.setErrorPosition(value);
-                    }
-                }
+                revalidateGrid();
             }
         }
 
@@ -47,14 +40,7 @@ namespace FormComponent
             set
             {
                 _errorSize = value;
-                foreach (Control c in Controls)
-                {
-                    IFormInput obj = c as IFormInput;
-                    if (obj != null)
-                    {
-                        obj.setErrorSize(value);
-                    }
-                }
+                revalidateGrid();
             }
         }
 
@@ -65,14 +51,7 @@ namespace FormComponent
             set
             {
                 _fieldsSize = value;
-                foreach (Control c in Controls)
-                {
-                    IFormInput obj = c as IFormInput;
-                    if (obj != null)
-                    {
-                        obj.setInputSize(value);
-                    }
-                }
+                revalidateGrid();
             }
         }
 
@@ -87,6 +66,42 @@ namespace FormComponent
                 }
             }
         }
+
+        private int _marginLeft = 0;
+        public int ControlsMarginLeft
+        {
+            get { return _marginLeft; }
+            set { _marginLeft = value; }
+        }
+
+        private int _marginTop = 0;
+        public int ControlsMarginTop
+        {
+            get { return _marginTop; }
+            set { _marginTop = value; }
+        }
+
+        private int _marginRight = 0;
+        public int ControlsMarginRight
+        {
+            get { return _marginRight; }
+            set { _marginRight = value; }
+        }
+
+        private int _marginBottom = 0;
+        public int ControlsMarginBottom
+        {
+            get { return _marginBottom; }
+            set { _marginBottom = value; }
+        }
+
+        private bool _controlsSizeFillToParent;
+        public bool ControlsSizeFillToParent
+        {
+            get { return _controlsSizeFillToParent; }
+            set { _controlsSizeFillToParent = value; }
+        }
+
 
         public void revalidateGrid()
         {
@@ -107,7 +122,10 @@ namespace FormComponent
                             Point point = obj.getLocation();
                             currentHeight = point.Y;
                         }
+                        obj.setErrorPosition(_errorPosition);
+                        obj.setErrorSize(_errorSize);
                         obj.setLocation(new Point(_marginLeft, currentHeight));
+                        obj.setInputSize(_fieldsSize);
                         currentHeight += (_fieldsSize.Height + _marginTop);
                         i++;
                     }
@@ -116,19 +134,13 @@ namespace FormComponent
             }
           
         }
-        private int _marginLeft = 0;
-        public int ControlsMarginLeft
-        {
-            get { return _marginLeft; }
-            set { _marginLeft = value; }
-        }
+       
 
-        private int _marginTop = 0;
-        public int ControlsMarginTop
-        {
-            get { return _marginTop; }
-            set { _marginTop = value; }
-        }
+
+
+
+
+
 
         public Form()
         {

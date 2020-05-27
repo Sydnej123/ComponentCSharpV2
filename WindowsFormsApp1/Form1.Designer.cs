@@ -38,11 +38,13 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.form2.SuspendLayout();
+          
             this.SuspendLayout();
             // 
             // form2
             // 
+            this.form2.AutoSize = true;
+            this.form2.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.form2.BackColor = System.Drawing.SystemColors.HotTrack;
             this.form2.ControlGrid = true;
             this.form2.Controls.Add(this.button1);
@@ -56,14 +58,15 @@
             this.form2.ControlsMarginLeft = 150;
             this.form2.ControlsMarginTop = 5;
             this.form2.Cursor = System.Windows.Forms.Cursors.IBeam;
+            this.form2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.form2.ErrorPosition = new System.Drawing.Point(0, 50);
             this.form2.ErrorSize = new System.Drawing.Size(200, 20);
             this.form2.FieldsSize = new System.Drawing.Size(300, 70);
             this.form2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.form2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.form2.Location = new System.Drawing.Point(-2, 1);
+            this.form2.Location = new System.Drawing.Point(0, 0);
             this.form2.Name = "form2";
-            this.form2.Size = new System.Drawing.Size(493, 942);
+            this.form2.Size = new System.Drawing.Size(349, 629);
             this.form2.TabIndex = 0;
             this.form2.Load += new System.EventHandler(this.form2_Load);
             // 
@@ -154,7 +157,7 @@
             this.AutoSize = true;
             this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(490, 728);
+            this.ClientSize = new System.Drawing.Size(349, 629);
             this.Controls.Add(this.form2);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Form1";
@@ -162,6 +165,7 @@
             this.form2.ResumeLayout(false);
             this.form2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
