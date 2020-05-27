@@ -41,10 +41,15 @@ namespace FormComponent
             set { field.Size = value; }
         }
 
+        private Color _foreColor;
+
         public Color FieldForeColor
         {
-            get { return field.ForeColor; }
-            set { field.ForeColor = value; }
+            get { return _foreColor; }
+            set
+            {
+                _foreColor = value;
+            }
         }
 
         public Color FieldBackColor
@@ -57,8 +62,53 @@ namespace FormComponent
             field.Width = this.Width;
             errorLabel.Width = this.Width;
         }
+
+
+        private String _placeholderText;
+
+        public String Placeholder
+        {
+            get { return this._placeholderText; }
+            set
+            {
+                this._placeholderText = value;
+                this.field.Text = value;
+                if (value != string.Empty)
+                {
+                    this.field.ForeColor = Color.Gray;
+                }
+
+            }
+        }
+        private void showPlaceholder(object sender, EventArgs e)
+        {
+            if (this.field.Text == string.Empty)
+            {
+                this.field.ForeColor = Color.Gray;
+                this.field.Text = _placeholderText;
+                this.field.PasswordChar = '\0';
+            }
+            else
+            {
+                this.field.PasswordChar = '*';
+                this.field.ForeColor = this._foreColor;
+            }
+        }
+        private void hidePlaceholder(object sender, EventArgs e)
+        {
+            if (this.field.Text == _placeholderText)
+            {
+                this.field.PasswordChar = '*';
+                this.field.ForeColor = this._foreColor;
+                this.field.Text = "";
+            }
+
+        }
         public FormPasswordInput()
         {
+            this.field.Text = _placeholderText;
+            this.field.GotFocus += hidePlaceholder;
+            this.field.LostFocus += showPlaceholder;
             this.Resize += resizeElements;
             errorLabel.Visible = false;
             InitializeComponent();
@@ -66,6 +116,9 @@ namespace FormComponent
 
         public FormPasswordInput(IContainer container)
         {
+            this.field.Text = _placeholderText;
+            this.field.GotFocus += hidePlaceholder;
+            this.field.LostFocus += showPlaceholder;
             errorLabel.Visible = false;
             this.Resize += resizeElements;
             container.Add(this);
@@ -76,7 +129,7 @@ namespace FormComponent
             base.OnPaint(e);
             if (!this.Controls.Contains(field))
             {
-                field.PasswordChar = '*';
+               
                 this.Controls.Add(field);
                 this.Controls.Add(errorLabel);
                 this.Size = new System.Drawing.Size(200, 50);

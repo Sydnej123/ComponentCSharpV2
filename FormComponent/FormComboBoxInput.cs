@@ -102,7 +102,7 @@ namespace FormComponent
         {
             if (_isRequired)
             {
-                if (field.SelectedItem.ToString().Length > 0)
+                if (field.SelectedItem != null)
                 {
                     return true;
                 }
@@ -126,7 +126,7 @@ namespace FormComponent
         }
         public override void setFieldHorizontalPosition(int horizontalPosition)
         {
-            this.Location = new Point(horizontalPosition, field.Location.Y);
+            this.Location = new Point(horizontalPosition, this.Location.Y);
         }
     }
 

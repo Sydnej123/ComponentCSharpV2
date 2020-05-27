@@ -29,10 +29,12 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            FormComponent.FormComboBoxOption formComboBoxOption1 = new FormComponent.FormComboBoxOption();
-            FormComponent.FormComboBoxOption formComboBoxOption2 = new FormComponent.FormComboBoxOption();
-            FormComponent.FormComboBoxOption formComboBoxOption3 = new FormComponent.FormComboBoxOption();
+            FormComponent.FormComboBoxOption formComboBoxOption4 = new FormComponent.FormComboBoxOption();
+            FormComponent.FormComboBoxOption formComboBoxOption5 = new FormComponent.FormComboBoxOption();
+            FormComponent.FormComboBoxOption formComboBoxOption6 = new FormComponent.FormComboBoxOption();
             this.form2 = new FormComponent.Form(this.components);
+            this.button1 = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
@@ -46,13 +48,12 @@
             this.formDateInput1 = new FormComponent.FormDateInput(this.components);
             this.formComboBox1 = new FormComponent.FormComboBox(this.components);
             this.formCheckboxInput1 = new FormComponent.FormCheckboxInput(this.components);
-            this.label7 = new System.Windows.Forms.Label();
-            this.button1 = new System.Windows.Forms.Button();
             this.form2.SuspendLayout();
             this.SuspendLayout();
             // 
             // form2
             // 
+            this.form2.AutoSize = true;
             this.form2.BackColor = System.Drawing.SystemColors.HotTrack;
             this.form2.Controls.Add(this.button1);
             this.form2.Controls.Add(this.label7);
@@ -73,14 +74,37 @@
             this.form2.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.form2.ErrorPosition = new System.Drawing.Point(0, 50);
             this.form2.ErrorSize = new System.Drawing.Size(200, 20);
-            this.form2.FieldsSize = new System.Drawing.Size(300, 70);
+            this.form2.FieldsSize = new System.Drawing.Size(300, 50);
             this.form2.Font = new System.Drawing.Font("Microsoft YaHei", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.form2.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.form2.Location = new System.Drawing.Point(1, 1);
             this.form2.Name = "form2";
-            this.form2.Size = new System.Drawing.Size(483, 639);
+            this.form2.Size = new System.Drawing.Size(477, 660);
             this.form2.TabIndex = 0;
             this.form2.Load += new System.EventHandler(this.form2_Load);
+            // 
+            // button1
+            // 
+            this.button1.BackColor = System.Drawing.Color.White;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Arrow;
+            this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
+            this.button1.Location = new System.Drawing.Point(150, 586);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(200, 40);
+            this.button1.TabIndex = 15;
+            this.button1.Text = "Zarejestruj";
+            this.button1.UseVisualStyleBackColor = false;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(47, 352);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(78, 21);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Urodziny";
+            this.label7.Click += new System.EventHandler(this.label7_Click);
             // 
             // label8
             // 
@@ -142,7 +166,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(151, 488);
+            this.label1.Location = new System.Drawing.Point(182, 541);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(168, 21);
             this.label1.TabIndex = 6;
@@ -152,22 +176,22 @@
             // formTextInput1
             // 
             this.formTextInput1.ErrorLabelBackColor = System.Drawing.SystemColors.HotTrack;
-            this.formTextInput1.ErrorLabelForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.formTextInput1.ErrorLabelForeColor = System.Drawing.Color.DarkRed;
             this.formTextInput1.ErrorLabelLocation = new System.Drawing.Point(0, 35);
             this.formTextInput1.ErrorLabelSize = new System.Drawing.Size(300, 15);
-            this.formTextInput1.ErrorMessage = "";
+            this.formTextInput1.ErrorMessage = "Błędny login";
             this.formTextInput1.FieldBackColor = System.Drawing.SystemColors.Window;
             this.formTextInput1.FieldForeColor = System.Drawing.Color.Empty;
             this.formTextInput1.FieldLocation = new System.Drawing.Point(0, 0);
             this.formTextInput1.FieldName = null;
             this.formTextInput1.FieldSize = new System.Drawing.Size(300, 29);
-            this.formTextInput1.IsRequired = false;
-            this.formTextInput1.Location = new System.Drawing.Point(131, 106);
-            this.formTextInput1.MaxLength = 32767;
+            this.formTextInput1.IsRequired = true;
+            this.formTextInput1.Location = new System.Drawing.Point(150, 106);
+            this.formTextInput1.MaxLength = 3;
             this.formTextInput1.Name = "formTextInput1";
             this.formTextInput1.Placeholder = "login";
-            this.formTextInput1.RegularExpression = null;
-            this.formTextInput1.Size = new System.Drawing.Size(300, 70);
+            this.formTextInput1.RegularExpression = "abecalo";
+            this.formTextInput1.Size = new System.Drawing.Size(300, 79);
             this.formTextInput1.TabIndex = 5;
             // 
             // formPasswordInput1
@@ -182,11 +206,12 @@
             this.formPasswordInput1.FieldLocation = new System.Drawing.Point(0, 0);
             this.formPasswordInput1.FieldName = null;
             this.formPasswordInput1.FieldSize = new System.Drawing.Size(300, 29);
-            this.formPasswordInput1.Location = new System.Drawing.Point(131, 191);
+            this.formPasswordInput1.Location = new System.Drawing.Point(150, 191);
             this.formPasswordInput1.MaxLength = 8;
             this.formPasswordInput1.Name = "formPasswordInput1";
+            this.formPasswordInput1.Placeholder = "hasło";
             this.formPasswordInput1.RegularExpression = null;
-            this.formPasswordInput1.Size = new System.Drawing.Size(300, 70);
+            this.formPasswordInput1.Size = new System.Drawing.Size(300, 50);
             this.formPasswordInput1.TabIndex = 4;
             // 
             // formNumericField1
@@ -207,7 +232,7 @@
             0,
             0,
             0});
-            this.formNumericField1.Location = new System.Drawing.Point(131, 267);
+            this.formNumericField1.Location = new System.Drawing.Point(150, 267);
             this.formNumericField1.Maximum = new decimal(new int[] {
             150,
             0,
@@ -219,7 +244,7 @@
             0,
             0});
             this.formNumericField1.Name = "formNumericField1";
-            this.formNumericField1.Size = new System.Drawing.Size(300, 70);
+            this.formNumericField1.Size = new System.Drawing.Size(300, 50);
             this.formNumericField1.TabIndex = 3;
             this.formNumericField1.ThousandsSeparator = false;
             // 
@@ -239,9 +264,9 @@
             this.formDateInput1.FieldLocation = new System.Drawing.Point(0, 0);
             this.formDateInput1.FieldName = null;
             this.formDateInput1.FieldSize = new System.Drawing.Size(300, 29);
-            this.formDateInput1.Location = new System.Drawing.Point(131, 352);
+            this.formDateInput1.Location = new System.Drawing.Point(150, 352);
             this.formDateInput1.Name = "formDateInput1";
-            this.formDateInput1.Size = new System.Drawing.Size(300, 70);
+            this.formDateInput1.Size = new System.Drawing.Size(300, 50);
             this.formDateInput1.TabIndex = 2;
             // 
             // formComboBox1
@@ -258,19 +283,19 @@
             this.formComboBox1.FieldSize = new System.Drawing.Size(300, 24);
             this.formComboBox1.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
             this.formComboBox1.IsRequired = true;
-            formComboBoxOption1.Text = "Mężczyzna";
-            formComboBoxOption1.Value = "m";
-            formComboBoxOption2.Text = "Kobieta";
-            formComboBoxOption2.Value = "k";
-            formComboBoxOption3.Text = "Nieokreślona";
-            formComboBoxOption3.Value = "n";
+            formComboBoxOption4.Text = "Mężczyzna";
+            formComboBoxOption4.Value = "m";
+            formComboBoxOption5.Text = "Kobieta";
+            formComboBoxOption5.Value = "k";
+            formComboBoxOption6.Text = "Nieokreślona";
+            formComboBoxOption6.Value = "n";
             this.formComboBox1.Items = new FormComponent.FormComboBoxOption[] {
-        formComboBoxOption1,
-        formComboBoxOption2,
-        formComboBoxOption3};
-            this.formComboBox1.Location = new System.Drawing.Point(131, 428);
+        formComboBoxOption4,
+        formComboBoxOption5,
+        formComboBoxOption6};
+            this.formComboBox1.Location = new System.Drawing.Point(150, 428);
             this.formComboBox1.Name = "formComboBox1";
-            this.formComboBox1.Size = new System.Drawing.Size(300, 45);
+            this.formComboBox1.Size = new System.Drawing.Size(300, 50);
             this.formComboBox1.TabIndex = 1;
             // 
             // formCheckboxInput1
@@ -285,42 +310,21 @@
             this.formCheckboxInput1.FieldLocation = new System.Drawing.Point(0, 0);
             this.formCheckboxInput1.FieldName = null;
             this.formCheckboxInput1.FieldSize = new System.Drawing.Size(200, 30);
-            this.formCheckboxInput1.Location = new System.Drawing.Point(131, 488);
+            this.formCheckboxInput1.Location = new System.Drawing.Point(150, 530);
             this.formCheckboxInput1.Name = "formCheckboxInput1";
             this.formCheckboxInput1.Required = false;
-            this.formCheckboxInput1.Size = new System.Drawing.Size(300, 70);
+            this.formCheckboxInput1.Size = new System.Drawing.Size(300, 50);
             this.formCheckboxInput1.TabIndex = 0;
             this.formCheckboxInput1.Load += new System.EventHandler(this.formCheckboxInput1_Load);
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(47, 352);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(78, 21);
-            this.label7.TabIndex = 14;
-            this.label7.Text = "Urodziny";
-            this.label7.Click += new System.EventHandler(this.label7_Click);
-            // 
-            // button1
-            // 
-            this.button1.BackColor = System.Drawing.Color.White;
-            this.button1.Cursor = System.Windows.Forms.Cursors.Arrow;
-            this.button1.ForeColor = System.Drawing.SystemColors.HotTrack;
-            this.button1.Location = new System.Drawing.Point(155, 564);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(200, 40);
-            this.button1.TabIndex = 15;
-            this.button1.Text = "Zarejestruj";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
+            this.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.BackColor = System.Drawing.SystemColors.ButtonHighlight;
-            this.ClientSize = new System.Drawing.Size(483, 639);
+            this.ClientSize = new System.Drawing.Size(476, 639);
             this.Controls.Add(this.form2);
             this.ForeColor = System.Drawing.SystemColors.ControlLightLight;
             this.Name = "Form1";
@@ -328,6 +332,7 @@
             this.form2.ResumeLayout(false);
             this.form2.PerformLayout();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
