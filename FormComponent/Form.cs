@@ -22,7 +22,7 @@ namespace FormComponent
 
         }
 
-        private Point _errorPosition;
+        private Point _errorPosition = new Point(0,20);
         public Point ErrorPosition
         {
             get { return _errorPosition; }
@@ -33,7 +33,7 @@ namespace FormComponent
             }
         }
 
-        private Size _errorSize;
+        private Size _errorSize = new Size(200,20);
         public Size ErrorSize
         {
             get { return _errorSize; }
@@ -44,7 +44,7 @@ namespace FormComponent
             }
         }
 
-        private Size _fieldsSize;
+        private Size _fieldsSize = new Size(200, 40);
         public Size FieldsSize
         {
             get { return _fieldsSize; }
@@ -60,10 +60,9 @@ namespace FormComponent
         {
             get { return _controlGrid; }
             set { _controlGrid = value;
-                if (value)
-                {
+                
                     revalidateGrid();
-                }
+               
             }
         }
 
@@ -71,35 +70,45 @@ namespace FormComponent
         public int ControlsMarginLeft
         {
             get { return _marginLeft; }
-            set { _marginLeft = value; }
+            set { _marginLeft = value;
+                revalidateGrid();
+            }
         }
 
         private int _marginTop = 0;
         public int ControlsMarginTop
         {
             get { return _marginTop; }
-            set { _marginTop = value; }
+            set { _marginTop = value;
+                revalidateGrid();
+            }
         }
 
         private int _marginRight = 0;
         public int ControlsMarginRight
         {
             get { return _marginRight; }
-            set { _marginRight = value; }
+            set { _marginRight = value;
+                revalidateGrid();
+            }
         }
 
         private int _marginBottom = 0;
         public int ControlsMarginBottom
         {
             get { return _marginBottom; }
-            set { _marginBottom = value; }
+            set { _marginBottom = value;
+                revalidateGrid();
+            }
         }
 
-        private bool _controlsSizeFillToParent;
+        private bool _controlsSizeFillToParent = false;
         public bool ControlsSizeFillToParent
         {
             get { return _controlsSizeFillToParent; }
-            set { _controlsSizeFillToParent = value; }
+            set { _controlsSizeFillToParent = value;
+                revalidateGrid();
+            }
         }
 
 
@@ -120,13 +129,28 @@ namespace FormComponent
                         if (i == 0)
                         {
                             Point point = obj.getLocation();
-                            currentHeight = point.Y;
+                            currentHeight = point.Y + _marginTop;
                         }
                         obj.setErrorPosition(_errorPosition);
                         obj.setErrorSize(_errorSize);
-                        obj.setLocation(new Point(_marginLeft, currentHeight));
-                        obj.setInputSize(_fieldsSize);
-                        currentHeight += (_fieldsSize.Height + _marginTop);
+
+                        if (ControlsSizeFillToParent)
+                        {
+                           
+                            
+                            obj.setLocation(new Point(_marginLeft, currentHeight));
+                            obj.setSize(new Size(this.Parent.Width - _marginLeft - _marginRight, _fieldsSize.Height));
+
+                        }
+                        else
+                        {
+                            obj.setLocation(new Point(_marginLeft, currentHeight));
+                            obj.setSize(_fieldsSize);
+                        }
+
+                        
+                        
+                        currentHeight += (_fieldsSize.Height + _marginTop + _marginBottom);
                         i++;
                     }
                    

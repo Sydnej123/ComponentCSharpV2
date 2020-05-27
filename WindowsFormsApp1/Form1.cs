@@ -66,5 +66,15 @@ namespace WindowsFormsApp1
         {
             form2.getData();
         }
+
+        private void formTextInput1_Load_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void form2_Load_1(object sender, EventArgs e)
+        {
+
+        }
     }
 }

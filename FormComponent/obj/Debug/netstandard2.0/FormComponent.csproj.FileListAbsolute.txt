@@ -18,6 +18,7 @@ C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\netstandard2
 C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\netstandard2.0\FormComponent.csproj.CopyComplete
 C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\netstandard2.0\FormComponent.dll
 C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\netstandard2.0\FormComponent.pdb
+C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\netstandard2.0\FormComponent.csprojAssemblyReference.cache
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\bin\Debug\netstandard2.0\FormComponent.deps.json
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\bin\Debug\netstandard2.0\FormComponent.dll
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\bin\Debug\netstandard2.0\FormComponent.pdb
@@ -33,11 +34,10 @@ C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\bin\Debug\netstandard
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\bin\Debug\netstandard2.0\Accessibility.xml
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\bin\Debug\netstandard2.0\System.Deployment.xml
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\bin\Debug\netstandard2.0\System.Runtime.Serialization.Formatters.Soap.xml
+C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\obj\Debug\netstandard2.0\FormComponent.csprojAssemblyReference.cache
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\obj\Debug\netstandard2.0\FormComponent.AssemblyInfoInputs.cache
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\obj\Debug\netstandard2.0\FormComponent.AssemblyInfo.cs
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\obj\Debug\netstandard2.0\FormComponent.csproj.CoreCompileInputs.cache
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\obj\Debug\netstandard2.0\FormComponent.csproj.CopyComplete
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\obj\Debug\netstandard2.0\FormComponent.dll
 C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\obj\Debug\netstandard2.0\FormComponent.pdb
-C:\Users\Filip\Desktop\GIT\ComponentCSharpV2\FormComponent\obj\Debug\netstandard2.0\FormComponent.csprojAssemblyReference.cache
-C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\netstandard2.0\FormComponent.csprojAssemblyReference.cache
