@@ -115,5 +115,10 @@ namespace FormComponent
         {
             this.Size = size;
         }
+
+        public void setErrorColor(Color color)
+        {
+            errorLabel.ForeColor = color;
+        }
     }
 }

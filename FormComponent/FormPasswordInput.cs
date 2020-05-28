@@ -57,6 +57,13 @@ namespace FormComponent
             get { return field.BackColor; }
             set { field.BackColor = value; }
         }
+
+        private bool _isRequired;
+        public bool IsRequired
+        {
+            get { return _isRequired; }
+            set { _isRequired = value; }
+        }
         private void resizeElements(object sender, EventArgs e)
         {
             field.Width = this.Width;
@@ -176,7 +183,19 @@ namespace FormComponent
                     return true;
                 }
             }
-            return true;
+            else if (_isRequired && field.Text.Length < 0)
+            {
+                return false;
+            }
+            else if (field.Text == _placeholderText)
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+           
         }
 
         public override string getValue()

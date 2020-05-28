@@ -17,12 +17,17 @@ namespace WindowsFormsApp1
             InitializeComponent();
         }
 
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+        }
+
         private void formNumericField1_Load(object sender, EventArgs e)
         {
 
         }
 
-        private void formTextInput1_Load(object sender, EventArgs e)
+        private void form2_Load(object sender, EventArgs e)
         {
 
         }
@@ -37,42 +42,13 @@ namespace WindowsFormsApp1
 
         }
 
-        private void label8_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label4_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void form2_Load(object sender, EventArgs e)
-        {
-
-        }
-
-        private void label7_Click(object sender, EventArgs e)
-        {
-
-        }
-
-        private void formCheckboxInput1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            form2.getData();
+            textBox1.Text = form2.getDataString();
+          
         }
 
-        private void formTextInput1_Load_1(object sender, EventArgs e)
-        {
-
-        }
-
-        private void form2_Load_1(object sender, EventArgs e)
+        private void label9_Click(object sender, EventArgs e)
         {
 
         }

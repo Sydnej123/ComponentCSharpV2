@@ -147,7 +147,15 @@ namespace FormComponent
 
         public override string getValue()
         {
-            return ((FormComboBoxOption)field.SelectedItem).Value;
+            if(((FormComboBoxOption)field.SelectedItem) != null)
+            {
+                return ((FormComboBoxOption)field.SelectedItem).Value;
+            }
+            else
+            {
+                return "";
+            }
+           
         }
         public override void clearField()
         {

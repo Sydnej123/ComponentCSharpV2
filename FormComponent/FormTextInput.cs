@@ -109,7 +109,7 @@ namespace FormComponent
             errorLabel.Size = new System.Drawing.Size(200, 15);
             errorLabel.Location = new System.Drawing.Point(0, 35);
             field.TextChanged += hideError;
-
+           
          
         }
 
@@ -182,6 +182,9 @@ namespace FormComponent
                 }
             }
             else if(_isRequired && field.Text.Length < 0){
+                return false;
+            }else if(field.Text == _placeholderText)
+            {
                 return false;
             }
             else

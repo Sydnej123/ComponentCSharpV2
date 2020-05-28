@@ -23,7 +23,8 @@ namespace FormComponent
         void setLocation(Point point);
 
         void setSize(Size size);
-       
+
+        void setErrorColor(Color color);
 
     }
 }

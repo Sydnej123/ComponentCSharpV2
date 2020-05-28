@@ -111,7 +111,14 @@ namespace FormComponent
             }
         }
 
-
+        private Color _errorForeColor = Color.Red;
+        private Color ErrorForeColor
+        {
+            get { return _errorForeColor;  }
+            set { _errorForeColor = value;
+                    revalidateGrid();
+            }
+        }
         public void revalidateGrid()
         {
             if (_controlGrid) {
@@ -129,17 +136,17 @@ namespace FormComponent
                         if (i == 0)
                         {
                             Point point = obj.getLocation();
-                            currentHeight = point.Y + _marginTop;
+                            currentHeight = point.Y;
                         }
                         obj.setErrorPosition(_errorPosition);
                         obj.setErrorSize(_errorSize);
-
+                        obj.setErrorColor(_errorForeColor);
                         if (ControlsSizeFillToParent)
                         {
-                           
-                            
                             obj.setLocation(new Point(_marginLeft, currentHeight));
-                            obj.setSize(new Size(this.Parent.Width - _marginLeft - _marginRight, _fieldsSize.Height));
+              
+                            _fieldsSize = new Size(this.Width - _marginLeft - _marginRight, _fieldsSize.Height);
+                            obj.setSize(_fieldsSize);
 
                         }
                         else
@@ -168,13 +175,26 @@ namespace FormComponent
 
         public Form()
         {
+            
+            initForm();
             InitializeComponent();
         }
 
         public Form(IContainer container)
         {
+            initForm();
             container.Add(this);
             InitializeComponent();
+        }
+
+        public void initForm()
+        {
+            this.Resize += revalidate;
+        }
+
+        private void revalidate(object sender, EventArgs e)
+        {
+            revalidateGrid();
         }
 
         public bool validateForm()
