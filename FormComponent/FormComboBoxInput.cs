@@ -133,14 +133,17 @@ namespace FormComponent
             {
                 if (field.SelectedItem != null)
                 {
+                    errorLabel.Visible = false;
                     return true;
                 }
                 else
                 {
+                    errorLabel.Visible = true;
                     return false;
                 }
             }else
             {
+                errorLabel.Visible = false;
                 return true;
             }
         }

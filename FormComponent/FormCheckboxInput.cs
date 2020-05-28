@@ -93,6 +93,7 @@ namespace FormComponent
             }
             else
             {
+                errorLabel.Visible = false;
                 return true;
             }
         }

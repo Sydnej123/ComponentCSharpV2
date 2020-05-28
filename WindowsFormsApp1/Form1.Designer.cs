@@ -29,8 +29,8 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
-            FormComponent.FormComboBoxOption formComboBoxOption27 = new FormComponent.FormComboBoxOption();
-            FormComponent.FormComboBoxOption formComboBoxOption28 = new FormComponent.FormComboBoxOption();
+            FormComponent.FormComboBoxOption formComboBoxOption1 = new FormComponent.FormComboBoxOption();
+            FormComponent.FormComboBoxOption formComboBoxOption2 = new FormComponent.FormComboBoxOption();
             this.form2 = new FormComponent.Form(this.components);
             this.label9 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -118,7 +118,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.button1.BackColor = System.Drawing.SystemColors.ControlLightLight;
             this.button1.ForeColor = System.Drawing.Color.DeepSkyBlue;
-            this.button1.Location = new System.Drawing.Point(300, 603);
+            this.button1.Location = new System.Drawing.Point(300, 617);
             this.button1.MinimumSize = new System.Drawing.Size(300, 40);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(300, 40);
@@ -140,43 +140,43 @@
             // formCheckboxInput1
             // 
             this.formCheckboxInput1.ErrorLabelBackColor = System.Drawing.Color.DodgerBlue;
-            this.formCheckboxInput1.ErrorLabelForeColor = System.Drawing.SystemColors.ControlText;
+            this.formCheckboxInput1.ErrorLabelForeColor = System.Drawing.Color.Red;
             this.formCheckboxInput1.ErrorLabelLocation = new System.Drawing.Point(0, 28);
             this.formCheckboxInput1.ErrorLabelSize = new System.Drawing.Size(200, 24);
-            this.formCheckboxInput1.ErrorMessage = "";
+            this.formCheckboxInput1.ErrorMessage = "*Wymagane pole";
             this.formCheckboxInput1.FieldBackColor = System.Drawing.Color.DodgerBlue;
             this.formCheckboxInput1.FieldForeColor = System.Drawing.SystemColors.ControlText;
             this.formCheckboxInput1.FieldLocation = new System.Drawing.Point(0, 0);
             this.formCheckboxInput1.FieldName = "rulesAccepted";
             this.formCheckboxInput1.FieldSize = new System.Drawing.Size(200, 30);
-            this.formCheckboxInput1.HideErrorMessageOnChange = false;
+            this.formCheckboxInput1.HideErrorMessageOnChange = true;
             this.formCheckboxInput1.Location = new System.Drawing.Point(300, 551);
             this.formCheckboxInput1.Name = "formCheckboxInput1";
-            this.formCheckboxInput1.Required = false;
+            this.formCheckboxInput1.Required = true;
             this.formCheckboxInput1.Size = new System.Drawing.Size(312, 60);
             this.formCheckboxInput1.TabIndex = 13;
             // 
             // formComboBox1
             // 
             this.formComboBox1.ErrorLabelBackColor = System.Drawing.Color.DodgerBlue;
-            this.formComboBox1.ErrorLabelForeColor = System.Drawing.SystemColors.ControlText;
+            this.formComboBox1.ErrorLabelForeColor = System.Drawing.Color.Red;
             this.formComboBox1.ErrorLabelLocation = new System.Drawing.Point(0, 28);
             this.formComboBox1.ErrorLabelSize = new System.Drawing.Size(200, 24);
-            this.formComboBox1.ErrorMessage = "";
+            this.formComboBox1.ErrorMessage = "*Wymagane pole";
             this.formComboBox1.FieldBackColor = System.Drawing.SystemColors.Window;
             this.formComboBox1.FieldForeColor = System.Drawing.SystemColors.WindowText;
             this.formComboBox1.FieldLocation = new System.Drawing.Point(0, 0);
             this.formComboBox1.FieldName = "sex";
             this.formComboBox1.FieldSize = new System.Drawing.Size(312, 32);
             this.formComboBox1.HideErrorMessageOnChange = false;
-            this.formComboBox1.IsRequired = false;
-            formComboBoxOption27.Text = "Mężczyzna";
-            formComboBoxOption27.Value = "m";
-            formComboBoxOption28.Text = "Kobieta";
-            formComboBoxOption28.Value = "k";
+            this.formComboBox1.IsRequired = true;
+            formComboBoxOption1.Text = "Mężczyzna";
+            formComboBoxOption1.Value = "m";
+            formComboBoxOption2.Text = "Kobieta";
+            formComboBoxOption2.Value = "k";
             this.formComboBox1.Items = new FormComponent.FormComboBoxOption[] {
-        formComboBoxOption27,
-        formComboBoxOption28};
+        formComboBoxOption1,
+        formComboBoxOption2};
             this.formComboBox1.Location = new System.Drawing.Point(300, 481);
             this.formComboBox1.Name = "formComboBox1";
             this.formComboBox1.Size = new System.Drawing.Size(312, 60);
@@ -186,7 +186,7 @@
             // 
             this.formNumericField1.DecimalPlaces = 0;
             this.formNumericField1.ErrorLabelBackColor = System.Drawing.Color.DodgerBlue;
-            this.formNumericField1.ErrorLabelForeColor = System.Drawing.SystemColors.ControlText;
+            this.formNumericField1.ErrorLabelForeColor = System.Drawing.Color.Red;
             this.formNumericField1.ErrorLabelLocation = new System.Drawing.Point(0, 28);
             this.formNumericField1.ErrorLabelSize = new System.Drawing.Size(200, 24);
             this.formNumericField1.ErrorMessage = "";
@@ -203,12 +203,12 @@
             0});
             this.formNumericField1.Location = new System.Drawing.Point(300, 411);
             this.formNumericField1.Maximum = new decimal(new int[] {
-            100,
+            150,
             0,
             0,
             0});
             this.formNumericField1.Minimum = new decimal(new int[] {
-            0,
+            1,
             0,
             0,
             0});
@@ -300,7 +300,7 @@
             this.formDateInput1.DateAfter = new System.DateTime(((long)(0)));
             this.formDateInput1.DateBefore = new System.DateTime(((long)(0)));
             this.formDateInput1.ErrorLabelBackColor = System.Drawing.Color.DodgerBlue;
-            this.formDateInput1.ErrorLabelForeColor = System.Drawing.SystemColors.ControlText;
+            this.formDateInput1.ErrorLabelForeColor = System.Drawing.Color.Red;
             this.formDateInput1.ErrorLabelLocation = new System.Drawing.Point(0, 28);
             this.formDateInput1.ErrorLabelSize = new System.Drawing.Size(200, 24);
             this.formDateInput1.ErrorMessage = "";
@@ -318,51 +318,52 @@
             // formTextInput2
             // 
             this.formTextInput2.ErrorLabelBackColor = System.Drawing.Color.DodgerBlue;
-            this.formTextInput2.ErrorLabelForeColor = System.Drawing.SystemColors.ControlText;
+            this.formTextInput2.ErrorLabelForeColor = System.Drawing.Color.Red;
             this.formTextInput2.ErrorLabelLocation = new System.Drawing.Point(0, 28);
             this.formTextInput2.ErrorLabelSize = new System.Drawing.Size(200, 24);
-            this.formTextInput2.ErrorMessage = "";
+            this.formTextInput2.ErrorMessage = "Błędny email";
             this.formTextInput2.FieldBackColor = System.Drawing.SystemColors.Window;
             this.formTextInput2.FieldForeColor = System.Drawing.Color.Empty;
             this.formTextInput2.FieldLocation = new System.Drawing.Point(0, 0);
             this.formTextInput2.FieldName = "email";
             this.formTextInput2.FieldSize = new System.Drawing.Size(312, 29);
-            this.formTextInput2.HideErrorMessageOnChange = false;
-            this.formTextInput2.IsRequired = false;
+            this.formTextInput2.HideErrorMessageOnChange = true;
+            this.formTextInput2.IsRequired = true;
             this.formTextInput2.Location = new System.Drawing.Point(300, 271);
             this.formTextInput2.MaxLength = 32767;
             this.formTextInput2.Name = "formTextInput2";
             this.formTextInput2.Placeholder = "email";
-            this.formTextInput2.RegularExpression = null;
+            this.formTextInput2.RegularExpression = "\\A(?:[a-z0-9!#$%&\'*+/=?^_`{|}~-]+(?:\\.[a-z0-9!#$%&\'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](" +
+    "?:[a-z0-9-]*[a-z0-9])?\\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?)\\Z";
             this.formTextInput2.Size = new System.Drawing.Size(312, 60);
             this.formTextInput2.TabIndex = 2;
             // 
             // formPasswordInput1
             // 
             this.formPasswordInput1.ErrorLabelBackColor = System.Drawing.Color.DodgerBlue;
-            this.formPasswordInput1.ErrorLabelForeColor = System.Drawing.SystemColors.ControlText;
+            this.formPasswordInput1.ErrorLabelForeColor = System.Drawing.Color.Red;
             this.formPasswordInput1.ErrorLabelLocation = new System.Drawing.Point(0, 28);
             this.formPasswordInput1.ErrorLabelSize = new System.Drawing.Size(200, 24);
-            this.formPasswordInput1.ErrorMessage = "";
+            this.formPasswordInput1.ErrorMessage = "Błędne hasło";
             this.formPasswordInput1.FieldBackColor = System.Drawing.SystemColors.Window;
             this.formPasswordInput1.FieldForeColor = System.Drawing.Color.Empty;
             this.formPasswordInput1.FieldLocation = new System.Drawing.Point(0, 0);
             this.formPasswordInput1.FieldName = "password";
             this.formPasswordInput1.FieldSize = new System.Drawing.Size(312, 29);
             this.formPasswordInput1.HideErrorMessageOnChange = false;
-            this.formPasswordInput1.IsRequired = false;
+            this.formPasswordInput1.IsRequired = true;
             this.formPasswordInput1.Location = new System.Drawing.Point(300, 201);
             this.formPasswordInput1.MaxLength = 32767;
             this.formPasswordInput1.Name = "formPasswordInput1";
             this.formPasswordInput1.Placeholder = "hasło";
-            this.formPasswordInput1.RegularExpression = null;
+            this.formPasswordInput1.RegularExpression = "";
             this.formPasswordInput1.Size = new System.Drawing.Size(312, 60);
             this.formPasswordInput1.TabIndex = 1;
             // 
             // formTextInput1
             // 
             this.formTextInput1.ErrorLabelBackColor = System.Drawing.Color.DodgerBlue;
-            this.formTextInput1.ErrorLabelForeColor = System.Drawing.Color.Brown;
+            this.formTextInput1.ErrorLabelForeColor = System.Drawing.Color.Red;
             this.formTextInput1.ErrorLabelLocation = new System.Drawing.Point(0, 28);
             this.formTextInput1.ErrorLabelSize = new System.Drawing.Size(200, 24);
             this.formTextInput1.ErrorMessage = "Niedozwolony login";
@@ -377,7 +378,7 @@
             this.formTextInput1.MaxLength = 32767;
             this.formTextInput1.Name = "formTextInput1";
             this.formTextInput1.Placeholder = "login";
-            this.formTextInput1.RegularExpression = "poprawny";
+            this.formTextInput1.RegularExpression = "";
             this.formTextInput1.Size = new System.Drawing.Size(312, 60);
             this.formTextInput1.TabIndex = 0;
             // 

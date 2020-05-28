@@ -145,6 +145,7 @@ namespace FormComponent
             {
                 if (DateTime.Compare(field.Value, _dateBefore) > 0)
                 {
+                    
                     isDateValid = false;
                 }
                
@@ -157,6 +158,7 @@ namespace FormComponent
                 }
 
             }
+            errorLabel.Visible = !isDateValid;
             return isDateValid;
         }
 

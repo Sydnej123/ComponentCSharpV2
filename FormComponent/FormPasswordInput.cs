@@ -180,19 +180,23 @@ namespace FormComponent
                 }
                 else
                 {
+                    errorLabel.Visible = false;
                     return true;
                 }
             }
             else if (_isRequired && field.Text.Length < 0)
             {
+                errorLabel.Visible = true;
                 return false;
             }
-            else if (field.Text == _placeholderText)
+            else if (field.Text.Equals(_placeholderText))
             {
+                errorLabel.Visible = true;
                 return false;
             }
             else
             {
+                errorLabel.Visible = false;
                 return true;
             }
            
