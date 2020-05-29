@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.ComponentModel.Design;
-using System.Diagnostics;
-using System.Text;
 using System.Windows.Forms;
 using System.Drawing;
 using System.Linq;
@@ -21,6 +19,32 @@ namespace FormComponent
             get { return _json; }
 
         }
+        private Label formName = new Label();
+
+        public String FormName
+        {
+            get { return formName.Text;  }
+            set { formName.Text = value;  }
+        }
+
+        public Color FormNameColor
+        {
+            get { return formName.ForeColor;  }
+            set { formName.ForeColor = value;  }
+        }
+
+        private int _currentPadding = 0;
+
+        public int FormNameMarginTop
+        {
+            get { return formName.Padding.Top; }
+            set { formName.Padding = new Padding(0,value,0,0);
+                formName.Size = new Size(formName.Size.Width, formName.Size.Height + value - _currentPadding);
+                _currentPadding = value;
+            }
+        }
+         
+
 
         private Point _errorPosition = new Point(0,20);
         public Point ErrorPosition
@@ -189,6 +213,10 @@ namespace FormComponent
 
         public void initForm()
         {
+            formName.Dock = DockStyle.Top;
+            formName.TextAlign = ContentAlignment.MiddleCenter;
+            
+            this.Controls.Add(formName);
             this.Resize += revalidate;
         }
 

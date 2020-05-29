@@ -45,7 +45,6 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
             this.formDateInput1 = new FormComponent.FormDateInput(this.components);
             this.formTextInput2 = new FormComponent.FormTextInput(this.components);
             this.formPasswordInput1 = new FormComponent.FormPasswordInput(this.components);
@@ -70,7 +69,6 @@
             this.form2.Controls.Add(this.label4);
             this.form2.Controls.Add(this.label3);
             this.form2.Controls.Add(this.label2);
-            this.form2.Controls.Add(this.label1);
             this.form2.Controls.Add(this.formDateInput1);
             this.form2.Controls.Add(this.formTextInput2);
             this.form2.Controls.Add(this.formPasswordInput1);
@@ -85,6 +83,9 @@
             this.form2.ErrorSize = new System.Drawing.Size(200, 24);
             this.form2.FieldsSize = new System.Drawing.Size(312, 60);
             this.form2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
+            this.form2.FormName = "Rejestracja";
+            this.form2.FormNameColor = System.Drawing.SystemColors.ControlLight;
+            this.form2.FormNameMarginTop = 0;
             this.form2.Location = new System.Drawing.Point(0, 0);
             this.form2.MinimumSize = new System.Drawing.Size(800, 600);
             this.form2.Name = "form2";
@@ -278,21 +279,6 @@
             this.label2.Text = "Login";
             this.label2.Click += new System.EventHandler(this.label2_Click);
             // 
-            // label1
-            // 
-            this.label1.Dock = System.Windows.Forms.DockStyle.Top;
-            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.label1.ForeColor = System.Drawing.SystemColors.ControlLight;
-            this.label1.Location = new System.Drawing.Point(0, 0);
-            this.label1.Margin = new System.Windows.Forms.Padding(3, 40, 3, 0);
-            this.label1.Name = "label1";
-            this.label1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.label1.Size = new System.Drawing.Size(812, 25);
-            this.label1.TabIndex = 4;
-            this.label1.Text = "Rejestracja";
-            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
             // formDateInput1
             // 
             this.formDateInput1.CheckDateAfter = false;
@@ -399,7 +385,6 @@
         #endregion
 
         private FormComponent.Form form2;
-        private System.Windows.Forms.Label label1;
         private FormComponent.FormDateInput formDateInput1;
         private FormComponent.FormTextInput formTextInput2;
         private FormComponent.FormPasswordInput formPasswordInput1;

@@ -1,0 +1,6 @@
+C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\bin\Debug\net472\FormComponent.dll
+C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\bin\Debug\net472\FormComponent.pdb
+C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\net472\FormComponent.AssemblyInfoInputs.cache
+C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\net472\FormComponent.AssemblyInfo.cs
+C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\net472\FormComponent.dll
+C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\net472\FormComponent.pdb
