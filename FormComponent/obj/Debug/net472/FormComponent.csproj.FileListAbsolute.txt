@@ -4,3 +4,5 @@ C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\net472\FormC
 C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\net472\FormComponent.AssemblyInfo.cs
 C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\net472\FormComponent.dll
 C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\net472\FormComponent.pdb
+C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\bin\Debug\net472\FormComponent.xml
+C:\Users\songo\Desktop\GIT\ComponentTestApp\FormComponent\obj\Debug\net472\FormComponent.csprojAssemblyReference.cache

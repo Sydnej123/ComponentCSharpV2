@@ -8,12 +8,15 @@ using System.Windows.Forms;
 
 namespace FormComponent
 {
+    /// <summary>
+    /// Class represents combobox for Form controller.
+    /// </summary>
     public partial class FormComboBox : AbstractFormInput
     {
         private ComboBox field = new ComboBox();
-      
-       
-        
+
+
+        /// <value>Gets and sets items of type FormComboBoxOption for Form component</value>
         public FormComboBoxOption[] Items
         {
             get {
@@ -35,35 +38,42 @@ namespace FormComponent
             }
         }
         private bool _isRequired;
+        /// <value>Gets and sets if field is required</value>
         public bool IsRequired
         {
             get { return _isRequired; }
             set { _isRequired = value; }
         }
+        /// <value>Gets and sets field location</value>
         public Point FieldLocation
         {
             get { return field.Location; }
             set { field.Location = value; }
         }
-
+        /// <value>Gets and sets field size</value>
         public Size FieldSize
         {
             get { return field.Size; }
             set { field.Size = value; }
         }
-
+        /// <value>Gets and sets field fore color</value>
         public Color FieldForeColor
         {
             get { return field.ForeColor; }
             set { field.ForeColor = value; }
         }
-
+        /// <value>Gets and sets field back color</value>
         public Color FieldBackColor
         {
             get { return field.BackColor; }
             set { field.BackColor = value; }
         }
 
+        /// <summary>
+        /// Resize elements if neccesary.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void resizeElements(object sender, EventArgs e)
         {
             field.Width = this.Width;
@@ -77,7 +87,9 @@ namespace FormComponent
                 }
             }
         }
-
+        /// <summary>
+        /// Default constructor
+        /// </summary>
         public FormComboBox()
         {
             errorLabel.Visible = false;
@@ -93,7 +105,10 @@ namespace FormComponent
                 parent.revalidateGrid();
             }
         }
-
+        /// <summary>
+        /// Default constructor if component is added to container
+        /// </summary>
+        /// <param name="container">Contailer</param>
         public FormComboBox(IContainer container)
         {
             errorLabel.Visible = false;
@@ -110,6 +125,10 @@ namespace FormComponent
                 parent.revalidateGrid();
             }
         }
+        /// <summary>
+        /// Painting component
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -127,6 +146,10 @@ namespace FormComponent
                 parent.revalidateGrid();
             }
         }
+        /// <summary>
+        /// Check if field have valid value
+        /// </summary>
+        /// <returns>If field is valid</returns>
         public override bool isValid()
         {
             if (_isRequired)
@@ -148,6 +171,10 @@ namespace FormComponent
             }
         }
 
+        /// <summary>
+        /// Gets value of field
+        /// </summary>
+        /// <returns>Value of field</returns>
         public override string getValue()
         {
             if(((FormComboBoxOption)field.SelectedItem) != null)
@@ -160,14 +187,14 @@ namespace FormComponent
             }
            
         }
+        /// <summary>
+        /// Set default value of field
+        /// </summary>
         public override void clearField()
         {
             field.SelectedIndex = 0;
         }
-        public override void setFieldHorizontalPosition(int horizontalPosition)
-        {
-            this.Location = new Point(horizontalPosition, this.Location.Y);
-        }
+       
     }
 
 

@@ -15,17 +15,20 @@ namespace FormComponent
         private bool _dateCheckBefore;
         private bool _dateCheckAfter;
 
+        /// <value>Gets and sets if date should be before desired</value>
         public bool CheckDateBefore
         {
             get { return _dateCheckBefore;  }
             set { _dateCheckBefore = value;  }
         }
 
+        /// <value>Gets and sets if date should be after desired</value>
         public bool CheckDateAfter
         {
             get { return _dateCheckAfter; }
             set { _dateCheckAfter = value; }
         }
+        /// <value>Gets and sets date before </value>
         public DateTime DateBefore{
             get {
                 return _dateBefore;
@@ -34,31 +37,31 @@ namespace FormComponent
                  _dateBefore = value;
             }
         }
-
+        /// <value>Gets and sets field location</value>
         public Point FieldLocation
         {
             get { return field.Location; }
             set { field.Location = value; }
         }
-
+        /// <value>Gets and sets field size</value>
         public Size FieldSize
         {
             get { return field.Size; }
             set { field.Size = value; }
         }
-
+        /// <value>Gets and sets field fore color</value>
         public Color FieldForeColor
         {
             get { return field.ForeColor; }
             set { field.ForeColor = value; }
         }
-
+        /// <value>Gets and sets field back color</value>
         public Color FieldBackColor
         {
             get { return field.BackColor; }
             set { field.BackColor = value; }
         }
-
+        /// <value>Gets and sets date after </value>
         public DateTime DateAfter
         {
             get
@@ -71,6 +74,11 @@ namespace FormComponent
             }
         }
 
+        /// <summary>
+        /// Resizing parent element if needed
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void resizeElements(object sender, EventArgs e)
         {
             field.Width = this.Width;
@@ -86,6 +94,9 @@ namespace FormComponent
         }
 
         private DateTimePicker field = new DateTimePicker();
+        /// <summary>
+        ///  Default constructor.
+        /// </summary>
         public FormDateInput()
         {
             errorLabel.Visible = false;
@@ -102,7 +113,10 @@ namespace FormComponent
                 parent.revalidateGrid();
             }
         }
-
+        /// <summary>
+        /// Default constructor.
+        /// </summary>
+        /// <param name="container">Container to which controll will be added</param>
         public FormDateInput(IContainer container)
         {
             errorLabel.Visible = false;
@@ -120,7 +134,10 @@ namespace FormComponent
                 parent.revalidateGrid();
             }
         }
-
+        /// <summary>
+        /// Painting component
+        /// </summary>
+        /// <param name="e"></param>
         protected override void OnPaint(PaintEventArgs e)
         {
             base.OnPaint(e);
@@ -138,6 +155,10 @@ namespace FormComponent
                 parent.revalidateGrid();
             }
         }
+        /// <summary>
+        /// Check if field is valid
+        /// </summary>
+        /// <returns>Returns true if valid</returns>
         public override bool isValid()
         {
             bool isDateValid = true;
@@ -161,20 +182,23 @@ namespace FormComponent
             errorLabel.Visible = !isDateValid;
             return isDateValid;
         }
-
+        /// <summary>
+        /// Gets value of field
+        /// </summary>
+        /// <returns>Value of field</returns>
         public override string getValue()
         {
             
             return field.Text;
         }
+        /// <summary>
+        /// Set default value of field
+        /// </summary>
         public override void clearField()
         {
             field.Value = DateTime.Now;
         }
-        public override void setFieldHorizontalPosition(int horizontalPosition)
-        {
-            this.Location = new Point(horizontalPosition, this.Location.Y);
-        }
+       
     }
 
 }

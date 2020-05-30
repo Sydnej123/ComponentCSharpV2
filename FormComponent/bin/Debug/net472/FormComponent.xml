@@ -1,0 +1,718 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>FormComponent</name>
+    </assembly>
+    <members>
+        <member name="T:FormComponent.AbstractFormInput">
+            <summary>
+              Abstract base class for all FormComponent input types.
+            </summary>
+        </member>
+        <member name="P:FormComponent.AbstractFormInput.FieldName">
+            <value>Gets and sets input name</value>;
+        </member>
+        <member name="P:FormComponent.AbstractFormInput.ErrorMessage">
+            <value>Gets and sets error message</value>
+        </member>
+        <member name="P:FormComponent.AbstractFormInput.ErrorLabelLocation">
+            <value>Gets and sets error label location</value>
+        </member>
+        <member name="P:FormComponent.AbstractFormInput.ErrorLabelSize">
+            <value>Gets and sets error label size</value>
+        </member>
+        <member name="P:FormComponent.AbstractFormInput.ErrorLabelForeColor">
+            <value>Gets and sets error label fore color</value>
+        </member>
+        <member name="P:FormComponent.AbstractFormInput.ErrorLabelBackColor">
+            <value>Gets and sets error label back color</value>
+        </member>
+        <member name="P:FormComponent.AbstractFormInput.HideErrorMessageOnChange">
+            <value>Gets and sets if error should be hidden after text changed</value>
+        </member>
+        <member name="M:FormComponent.AbstractFormInput.hideError(System.Object,System.EventArgs)">
+            <summary>
+            Decides if error should be hidden.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.AbstractFormInput.setErrorSize(System.Drawing.Size)">
+            <summary>
+            Sets error size
+            </summary>
+            <param name="size">Size of error</param>
+        </member>
+        <member name="M:FormComponent.AbstractFormInput.setErrorPosition(System.Drawing.Point)">
+            <summary>
+            Sets error position
+            </summary>
+            <param name="point">Desired location</param>
+        </member>
+        <member name="M:FormComponent.AbstractFormInput.setInputSize(System.Drawing.Size)">
+            <summary>
+            Sets input field size
+            </summary>
+            <param name="size">Desired size of field</param>
+        </member>
+        <member name="M:FormComponent.AbstractFormInput.getLocation">
+            <summary>
+            Gets current location of field
+            </summary>
+            <returns>Location of field</returns>
+        </member>
+        <member name="M:FormComponent.AbstractFormInput.setLocation(System.Drawing.Point)">
+            <summary>
+            Sets current location of field
+            </summary>
+            <param name="point">Desired location</param>
+        </member>
+        <member name="M:FormComponent.AbstractFormInput.setSize(System.Drawing.Size)">
+            <summary>
+            Sets desired size of field
+            </summary>
+            <param name="size">Desired size</param>
+        </member>
+        <member name="M:FormComponent.AbstractFormInput.setErrorColor(System.Drawing.Color)">
+            <summary>
+            Sets color of error label
+            </summary>
+            <param name="color">Desired color of error label</param>
+        </member>
+        <member name="P:FormComponent.Form.JSONData">
+            <value>Gets data in json format</value>
+        </member>
+        <member name="P:FormComponent.Form.FormName">
+            <value>Gets and sets name of form</value>
+        </member>
+        <member name="P:FormComponent.Form.FormNameColor">
+            <value>Gets and sets color of form name</value>
+        </member>
+        <member name="P:FormComponent.Form.FormNameMarginTop">
+            <value>Gets and sets top margin of form name</value>
+        </member>
+        <member name="P:FormComponent.Form.ErrorPosition">
+            <value>Gets and sets error position for all inputs in container</value>
+        </member>
+        <member name="P:FormComponent.Form.ErrorSize">
+            <value>Gets and sets error size for all inputs in container</value>
+        </member>
+        <member name="P:FormComponent.Form.FieldsSize">
+            <value>Gets and sets field size for all inputs in container</value>
+        </member>
+        <member name="P:FormComponent.Form.ControlGrid">
+            <value>Gets and sets if grid of controlls should be controlled by form</value>
+        </member>
+        <member name="P:FormComponent.Form.ControlsMarginLeft">
+            <value>Gets and sets left margin for all inputs in container</value>
+        </member>
+        <member name="P:FormComponent.Form.ControlsMarginTop">
+            <value>Gets and sets top margin for all inputs in container</value>
+        </member>
+        <member name="P:FormComponent.Form.ControlsMarginRight">
+            <value>Gets and sets right margin for all inputs in container</value>
+        </member>
+        <member name="P:FormComponent.Form.ControlsMarginBottom">
+            <value>Gets and sets bottom margin for all inputs in container</value>
+        </member>
+        <member name="P:FormComponent.Form.ControlsSizeFillToParent">
+            <value>Gets and sets if controls size should be fitted to paren</value>
+        </member>
+        <member name="P:FormComponent.Form.ErrorForeColor">
+            <value>Gets and sets error fore color for all inputs in container</value>
+        </member>
+        <member name="M:FormComponent.Form.revalidateGrid">
+            <summary>
+            Revalidating grid of controlls
+            </summary>
+        </member>
+        <member name="M:FormComponent.Form.initForm">
+            <summary>
+            Initialization of form
+            </summary>
+        </member>
+        <member name="M:FormComponent.Form.revalidate(System.Object,System.EventArgs)">
+            <summary>
+            Revalidate grid
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.Form.validateForm">
+            <summary>
+            Checks if all inputs have valid value
+            </summary>
+            <returns>Returns true if form is valid</returns>
+        </member>
+        <member name="M:FormComponent.Form.getDataString">
+            <summary>
+            Gets data from form and creating string
+            </summary>
+            <returns>Form data in string format</returns>
+        </member>
+        <member name="M:FormComponent.Form.getData">
+            <summary>
+            Gets data from form in Dictionary format.
+            </summary>
+            <returns>Dictionary of fieldName : value</returns>
+        </member>
+        <member name="M:FormComponent.Form.clearFields">
+            <summary>
+            Sets default value for all fields in form
+            </summary>
+        </member>
+        <member name="F:FormComponent.Form.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FormComponent.Form.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FormComponent.Form.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FormComponent.FormCheckboxInput">
+            <summary>
+            Class designed for Form component. It contains checkbox and error label.
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormCheckboxInput.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="P:FormComponent.FormCheckboxInput.Required">
+            <value>Gets and sets if field value is required</value>
+        </member>
+        <member name="P:FormComponent.FormCheckboxInput.FieldLocation">
+            <value>Gets and sets field location</value>
+        </member>
+        <member name="P:FormComponent.FormCheckboxInput.FieldSize">
+            <value>Gets and sets field size</value>
+        </member>
+        <member name="P:FormComponent.FormCheckboxInput.FieldForeColor">
+            <value>Gets and sets field fore color</value>
+        </member>
+        <member name="P:FormComponent.FormCheckboxInput.FieldBackColor">
+            <value>Gets and sets field back color</value>
+        </member>
+        <member name="M:FormComponent.FormCheckboxInput.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="container">Contrainer to which control will be added</param>
+        </member>
+        <member name="M:FormComponent.FormCheckboxInput.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Painting component
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormCheckboxInput.isValid">
+            <summary>
+            Check if field is valid
+            </summary>
+            <returns>Returns true if valid</returns>
+        </member>
+        <member name="M:FormComponent.FormCheckboxInput.getValue">
+            <summary>
+            Gets value of field
+            </summary>
+            <returns>Value of field</returns>
+        </member>
+        <member name="M:FormComponent.FormCheckboxInput.clearField">
+            <summary>
+            Set default value of field
+            </summary>
+        </member>
+        <member name="F:FormComponent.FormCheckboxInput.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormCheckboxInput.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FormComponent.FormCheckboxInput.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FormComponent.FormComboBox">
+            <summary>
+            Class represents combobox for Form controller.
+            </summary>
+        </member>
+        <member name="P:FormComponent.FormComboBox.Items">
+            <value>Gets and sets items of type FormComboBoxOption for Form component</value>
+        </member>
+        <member name="P:FormComponent.FormComboBox.IsRequired">
+            <value>Gets and sets if field is required</value>
+        </member>
+        <member name="P:FormComponent.FormComboBox.FieldLocation">
+            <value>Gets and sets field location</value>
+        </member>
+        <member name="P:FormComponent.FormComboBox.FieldSize">
+            <value>Gets and sets field size</value>
+        </member>
+        <member name="P:FormComponent.FormComboBox.FieldForeColor">
+            <value>Gets and sets field fore color</value>
+        </member>
+        <member name="P:FormComponent.FormComboBox.FieldBackColor">
+            <value>Gets and sets field back color</value>
+        </member>
+        <member name="M:FormComponent.FormComboBox.resizeElements(System.Object,System.EventArgs)">
+            <summary>
+            Resize elements if neccesary.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormComboBox.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormComboBox.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Default constructor if component is added to container
+            </summary>
+            <param name="container">Contailer</param>
+        </member>
+        <member name="M:FormComponent.FormComboBox.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Painting component
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormComboBox.isValid">
+            <summary>
+            Check if field have valid value
+            </summary>
+            <returns>If field is valid</returns>
+        </member>
+        <member name="M:FormComponent.FormComboBox.getValue">
+            <summary>
+            Gets value of field
+            </summary>
+            <returns>Value of field</returns>
+        </member>
+        <member name="M:FormComponent.FormComboBox.clearField">
+            <summary>
+            Set default value of field
+            </summary>
+        </member>
+        <member name="F:FormComponent.FormComboBox.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormComboBox.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FormComponent.FormComboBox.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FormComponent.FormComboBoxOption">
+            <summary>
+            Options for FormComboBoxInput
+            </summary>
+        </member>
+        <member name="P:FormComponent.FormComboBoxOption.Text">
+            <summary>
+            Visible text for option
+            </summary>
+        </member>
+        <member name="P:FormComponent.FormComboBoxOption.Value">
+            <summary>
+            Value of option
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormComboBoxOption.ToString">
+            <summary>
+            Returns text to string
+            </summary>
+            <returns>String value of Text</returns>
+        </member>
+        <member name="P:FormComponent.FormDateInput.CheckDateBefore">
+            <value>Gets and sets if date should be before desired</value>
+        </member>
+        <member name="P:FormComponent.FormDateInput.CheckDateAfter">
+            <value>Gets and sets if date should be after desired</value>
+        </member>
+        <member name="P:FormComponent.FormDateInput.DateBefore">
+            <value>Gets and sets date before </value>
+        </member>
+        <member name="P:FormComponent.FormDateInput.FieldLocation">
+            <value>Gets and sets field location</value>
+        </member>
+        <member name="P:FormComponent.FormDateInput.FieldSize">
+            <value>Gets and sets field size</value>
+        </member>
+        <member name="P:FormComponent.FormDateInput.FieldForeColor">
+            <value>Gets and sets field fore color</value>
+        </member>
+        <member name="P:FormComponent.FormDateInput.FieldBackColor">
+            <value>Gets and sets field back color</value>
+        </member>
+        <member name="P:FormComponent.FormDateInput.DateAfter">
+            <value>Gets and sets date after </value>
+        </member>
+        <member name="M:FormComponent.FormDateInput.resizeElements(System.Object,System.EventArgs)">
+            <summary>
+            Resizing parent element if needed
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormDateInput.#ctor">
+            <summary>
+             Default constructor.
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormDateInput.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Default constructor.
+            </summary>
+            <param name="container">Container to which controll will be added</param>
+        </member>
+        <member name="M:FormComponent.FormDateInput.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Painting component
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormDateInput.isValid">
+            <summary>
+            Check if field is valid
+            </summary>
+            <returns>Returns true if valid</returns>
+        </member>
+        <member name="M:FormComponent.FormDateInput.getValue">
+            <summary>
+            Gets value of field
+            </summary>
+            <returns>Value of field</returns>
+        </member>
+        <member name="M:FormComponent.FormDateInput.clearField">
+            <summary>
+            Set default value of field
+            </summary>
+        </member>
+        <member name="F:FormComponent.FormDateInput.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormDateInput.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FormComponent.FormDateInput.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FormComponent.FormNumericField">
+            <summary>
+            Class designed for Form component. It contains numeric field and error label.
+            </summary>
+        </member>
+        <member name="P:FormComponent.FormNumericField.FieldLocation">
+            <value>Gets and sets field location</value>
+        </member>
+        <member name="P:FormComponent.FormNumericField.FieldSize">
+            <value>Gets and sets field size</value>
+        </member>
+        <member name="P:FormComponent.FormNumericField.FieldForeColor">
+            <value>Gets and sets field fore color</value>
+        </member>
+        <member name="P:FormComponent.FormNumericField.FieldBackColor">
+            <value>Gets and sets field back color</value>
+        </member>
+        <member name="P:FormComponent.FormNumericField.DecimalPlaces">
+            <value>Gets and sets field decimal places</value>
+        </member>
+        <member name="P:FormComponent.FormNumericField.Increment">
+            <value>Gets and sets field increment step</value>
+        </member>
+        <member name="P:FormComponent.FormNumericField.Maximum">
+            <value>Gets and sets field maximum value</value>
+        </member>
+        <member name="P:FormComponent.FormNumericField.Minimum">
+            <value>Gets and sets minimum valuer</value>
+        </member>
+        <member name="P:FormComponent.FormNumericField.ThousandsSeparator">
+            <value>Gets and sets if thousandsseparator should be visible</value>
+        </member>
+        <member name="M:FormComponent.FormNumericField.resizeElements(System.Object,System.EventArgs)">
+            <summary>
+            Resize parent element if neccessary.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormNumericField.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormNumericField.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="container">Contrainer to which control will be added</param>
+        </member>
+        <member name="M:FormComponent.FormNumericField.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Painting component
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormNumericField.isValid">
+            <summary>
+            Check if field is valid
+            </summary>
+            <returns>Returns true if valid</returns>
+        </member>
+        <member name="M:FormComponent.FormNumericField.getValue">
+            <summary>
+            Gets value of field
+            </summary>
+            <returns>Value of field</returns>
+        </member>
+        <member name="M:FormComponent.FormNumericField.clearField">
+            <summary>
+            Set default value of field
+            </summary>
+        </member>
+        <member name="F:FormComponent.FormNumericField.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormNumericField.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FormComponent.FormNumericField.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FormComponent.FormPasswordInput">
+            <summary>
+             Represents password input control for Form component.
+            </summary>
+        </member>
+        <member name="P:FormComponent.FormPasswordInput.RegularExpression">
+            <value>Gets and sets regular expression</value>
+        </member>
+        <member name="P:FormComponent.FormPasswordInput.MaxLength">
+            <value>Gets and sets if field max length</value>
+        </member>
+        <member name="P:FormComponent.FormPasswordInput.FieldLocation">
+            <value>Gets and sets field location</value>
+        </member>
+        <member name="P:FormComponent.FormPasswordInput.FieldSize">
+            <value>Gets and sets field size</value>
+        </member>
+        <member name="P:FormComponent.FormPasswordInput.FieldForeColor">
+            <value>Gets and sets field fore color</value>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:FormComponent.FormPasswordInput.FieldBackColor" -->
+        <member name="P:FormComponent.FormPasswordInput.IsRequired">
+            <value>Gets and sets if field value is required</value>
+        </member>
+        <member name="M:FormComponent.FormPasswordInput.resizeElements(System.Object,System.EventArgs)">
+            <summary>
+            Resize parent element if neccessary.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="P:FormComponent.FormPasswordInput.Placeholder">
+            <value>Gets and sets placeholder text</value>
+        </member>
+        <member name="M:FormComponent.FormPasswordInput.showPlaceholder(System.Object,System.EventArgs)">
+            <summary>
+            Decides if placeholder should be seen
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormPasswordInput.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormPasswordInput.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="container">Contrainer to which control will be added</param>
+        </member>
+        <member name="M:FormComponent.FormPasswordInput.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Painting component
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormPasswordInput.isValid">
+            <summary>
+            Check if field is valid
+            </summary>
+            <returns>Returns true if valid</returns>
+        </member>
+        <member name="M:FormComponent.FormPasswordInput.getValue">
+            <summary>
+            Gets value of field
+            </summary>
+            <returns>Value of field</returns>
+        </member>
+        <member name="M:FormComponent.FormPasswordInput.clearField">
+            <summary>
+            Set default value of field
+            </summary>
+        </member>
+        <member name="F:FormComponent.FormPasswordInput.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormPasswordInput.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FormComponent.FormPasswordInput.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:FormComponent.FormTextInput">
+            <summary>
+             Represents text input control for Form component.
+            </summary>
+        </member>
+        <member name="P:FormComponent.FormTextInput.RegularExpression">
+            <value>Gets and sets regular expression</value>
+        </member>
+        <member name="P:FormComponent.FormTextInput.MaxLength">
+            <value>Gets and sets if field max length</value>
+        </member>
+        <member name="P:FormComponent.FormTextInput.FieldLocation">
+            <value>Gets and sets field location</value>
+        </member>
+        <member name="P:FormComponent.FormTextInput.FieldSize">
+            <value>Gets and sets field size</value>
+        </member>
+        <member name="P:FormComponent.FormTextInput.FieldForeColor">
+            <value>Gets and sets field fore color</value>
+        </member>
+        <!-- Badly formed XML comment ignored for member "P:FormComponent.FormTextInput.FieldBackColor" -->
+        <member name="P:FormComponent.FormTextInput.IsRequired">
+            <value>Gets and sets if field value is required</value>
+        </member>
+        <member name="P:FormComponent.FormTextInput.Placeholder">
+            <value>Gets and sets placeholder text</value>
+        </member>
+        <member name="M:FormComponent.FormTextInput.showPlaceholder(System.Object,System.EventArgs)">
+            <summary>
+            Shows placeholder
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormTextInput.hidePlaceholder(System.Object,System.EventArgs)">
+            <summary>
+            Hides placeholder
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormTextInput.#ctor">
+            <summary>
+            Default constructor
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormTextInput.resizeElements(System.Object,System.EventArgs)">
+            <summary>
+            Resize parent element if neccessary.
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormTextInput.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Default constructor
+            </summary>
+            <param name="container">Contrainer to which control will be added</param>
+        </member>
+        <member name="M:FormComponent.FormTextInput.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Painting component
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:FormComponent.FormTextInput.isValid">
+            <summary>
+            Check if field is valid
+            </summary>
+            <returns>Returns true if valid</returns>
+        </member>
+        <member name="M:FormComponent.FormTextInput.getValue">
+            <summary>
+            Gets value of field
+            </summary>
+            <returns>Value of field</returns>
+        </member>
+        <member name="M:FormComponent.FormTextInput.clearField">
+            <summary>
+            Set default value of field
+            </summary>
+        </member>
+        <member name="F:FormComponent.FormTextInput.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:FormComponent.FormTextInput.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:FormComponent.FormTextInput.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

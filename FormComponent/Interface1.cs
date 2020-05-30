@@ -12,7 +12,6 @@ namespace FormComponent
 
         void clearField();
 
-        void setFieldHorizontalPosition(int horizontalPosition);
         void setErrorPosition(Point point);
 
         void setErrorSize(Size size);

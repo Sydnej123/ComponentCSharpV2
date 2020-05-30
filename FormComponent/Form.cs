@@ -10,10 +10,12 @@ namespace FormComponent
 {
     [Designer("System.Windows.Forms.Design.ParentControlDesigner, System.Design", typeof(IDesigner))]
 
+    /// <summary>Form controller. Container for designed inputs. </summary>
     public partial class Form : UserControl
     {
 
         private string _json = "";
+        /// <value>Gets data in json format</value>
         public string JSONData
         {
             get { return _json; }
@@ -21,12 +23,14 @@ namespace FormComponent
         }
         private Label formName = new Label();
 
+        /// <value>Gets and sets name of form</value>
         public String FormName
         {
             get { return formName.Text;  }
             set { formName.Text = value;  }
         }
 
+        /// <value>Gets and sets color of form name</value>
         public Color FormNameColor
         {
             get { return formName.ForeColor;  }
@@ -35,6 +39,7 @@ namespace FormComponent
 
         private int _currentPadding = 0;
 
+        /// <value>Gets and sets top margin of form name</value>
         public int FormNameMarginTop
         {
             get { return formName.Padding.Top; }
@@ -43,10 +48,11 @@ namespace FormComponent
                 _currentPadding = value;
             }
         }
-         
 
 
+        
         private Point _errorPosition = new Point(0,20);
+        /// <value>Gets and sets error position for all inputs in container</value>
         public Point ErrorPosition
         {
             get { return _errorPosition; }
@@ -58,6 +64,7 @@ namespace FormComponent
         }
 
         private Size _errorSize = new Size(200,20);
+        /// <value>Gets and sets error size for all inputs in container</value>
         public Size ErrorSize
         {
             get { return _errorSize; }
@@ -69,6 +76,7 @@ namespace FormComponent
         }
 
         private Size _fieldsSize = new Size(200, 40);
+        /// <value>Gets and sets field size for all inputs in container</value>
         public Size FieldsSize
         {
             get { return _fieldsSize; }
@@ -80,6 +88,7 @@ namespace FormComponent
         }
 
         private bool _controlGrid = false;
+        /// <value>Gets and sets if grid of controlls should be controlled by form</value>
         public bool ControlGrid
         {
             get { return _controlGrid; }
@@ -91,6 +100,7 @@ namespace FormComponent
         }
 
         private int _marginLeft = 0;
+        /// <value>Gets and sets left margin for all inputs in container</value>
         public int ControlsMarginLeft
         {
             get { return _marginLeft; }
@@ -100,6 +110,7 @@ namespace FormComponent
         }
 
         private int _marginTop = 0;
+        /// <value>Gets and sets top margin for all inputs in container</value>
         public int ControlsMarginTop
         {
             get { return _marginTop; }
@@ -109,6 +120,7 @@ namespace FormComponent
         }
 
         private int _marginRight = 0;
+        /// <value>Gets and sets right margin for all inputs in container</value>
         public int ControlsMarginRight
         {
             get { return _marginRight; }
@@ -118,6 +130,7 @@ namespace FormComponent
         }
 
         private int _marginBottom = 0;
+        /// <value>Gets and sets bottom margin for all inputs in container</value>
         public int ControlsMarginBottom
         {
             get { return _marginBottom; }
@@ -127,6 +140,7 @@ namespace FormComponent
         }
 
         private bool _controlsSizeFillToParent = false;
+        /// <value>Gets and sets if controls size should be fitted to paren</value>
         public bool ControlsSizeFillToParent
         {
             get { return _controlsSizeFillToParent; }
@@ -136,6 +150,7 @@ namespace FormComponent
         }
 
         private Color _errorForeColor = Color.Red;
+        /// <value>Gets and sets error fore color for all inputs in container</value>
         private Color ErrorForeColor
         {
             get { return _errorForeColor;  }
@@ -143,6 +158,9 @@ namespace FormComponent
                     revalidateGrid();
             }
         }
+        /// <summary>
+        /// Revalidating grid of controlls
+        /// </summary>
         public void revalidateGrid()
         {
             if (_controlGrid) {
@@ -211,6 +229,9 @@ namespace FormComponent
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Initialization of form
+        /// </summary>
         public void initForm()
         {
             formName.Dock = DockStyle.Top;
@@ -220,11 +241,19 @@ namespace FormComponent
             this.Resize += revalidate;
         }
 
+        /// <summary>
+        /// Revalidate grid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void revalidate(object sender, EventArgs e)
         {
             revalidateGrid();
         }
-
+        /// <summary>
+        /// Checks if all inputs have valid value
+        /// </summary>
+        /// <returns>Returns true if form is valid</returns>
         public bool validateForm()
         {
             bool isFormValid = true;
@@ -243,6 +272,10 @@ namespace FormComponent
             return isFormValid;
         }
 
+        /// <summary>
+        /// Gets data from form and creating string
+        /// </summary>
+        /// <returns>Form data in string format</returns>
         public String getDataString() {
             string data = "{";
             if (validateForm())
@@ -265,6 +298,10 @@ namespace FormComponent
            }
         }
 
+        /// <summary>
+        /// Gets data from form in Dictionary format.
+        /// </summary>
+        /// <returns>Dictionary of fieldName : value</returns>
         public Dictionary<string, string> getData()
         {
             Dictionary<string, string> values = new Dictionary<string, string>();
@@ -283,6 +320,9 @@ namespace FormComponent
             return values;
         }
 
+        /// <summary>
+        /// Sets default value for all fields in form
+        /// </summary>
         public void clearFields()
         {
             foreach (Control c in Controls)
